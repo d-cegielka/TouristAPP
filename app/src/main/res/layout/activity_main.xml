@@ -48,4 +48,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/flashlightButton" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="294dp"
+        android:layout_height="341dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/asset_5" />
+
+    <ImageView
+        android:id="@+id/compassImage"
+        android:layout_width="221dp"
+        android:layout_height="224dp"
+        android:contentDescription="compassImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/sosButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/asset1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
