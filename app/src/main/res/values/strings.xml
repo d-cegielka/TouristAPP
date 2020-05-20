@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tourist APP</string>
+    <string name="styleSwitchDesc">Tryb jasny</string>
+    <string name="TurnOnFlashlight">ON</string>
+    <string name="TurnOffFlashlight">OFF</string>
+    <string name="flashlightTextView">Latarka</string>
+    <string name="sosButton">SOS</string>
+</resources>
