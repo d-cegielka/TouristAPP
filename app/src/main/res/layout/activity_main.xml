@@ -4,10 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/sosButton"
+        android:layout_width="119dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginBottom="9dp"
+        android:backgroundTint="#C81414"
+        android:text="@string/sosButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/compassBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="170dp"
+        android:contentDescription="@string/compassBackgroundDesc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/bg" />
+
+    <ImageView
+        android:id="@+id/compassPointer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/CompassPointerDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/compassBackground"
+        app:layout_constraintEnd_toEndOf="@+id/compassBackground"
+        app:layout_constraintStart_toStartOf="@+id/compassBackground"
+        app:layout_constraintTop_toTopOf="@+id/compassBackground"
+        app:srcCompat="@drawable/pointer" />
+
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switch_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -16,58 +58,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/flashlightTextView"
+        app:layout_constraintBottom_toTopOf="@+id/flashlightButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/angleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/sosButton"
+        app:layout_constraintStart_toStartOf="@+id/sosButton"
+        app:layout_constraintTop_toBottomOf="@+id/compassPointer" />
+
+    <ToggleButton
         android:id="@+id/flashlightButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="10dp"
-        android:text="@string/TurnOnFlashlight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/flashlightTextView"
-        app:layout_constraintBottom_toTopOf="@+id/flashlightButton"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/sosButton"
-        android:layout_width="119dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginBottom="9dp"
-        android:backgroundTint="#C81414"
-        android:text="@string/sosButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/flashlightButton" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="294dp"
-        android:layout_height="341dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/asset_5" />
-
-    <ImageView
-        android:id="@+id/compassImage"
-        android:layout_width="221dp"
-        android:layout_height="224dp"
-        android:contentDescription="compassImageView"
-        app:layout_constraintBottom_toBottomOf="@+id/sosButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/asset1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

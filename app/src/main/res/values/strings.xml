@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Tourist APP</string>
-    <string name="styleSwitchDesc">Tryb jasny</string>
+    <string name="styleSwitchDesc">Tryb ciemny</string>
     <string name="TurnOnFlashlight">ON</string>
     <string name="TurnOffFlashlight">OFF</string>
     <string name="flashlightTextView">Latarka</string>
     <string name="sosButton">SOS</string>
+    <string name="bgDesc">Background compass</string>
+    <string name="pointerDesc">Pointer compass</string>
+    <string name="compassBackgroundDesc">Compass Background</string>
+    <string name="CompassPointerDesc">Compass Pointer</string>
 </resources>
