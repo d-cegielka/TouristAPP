@@ -12,17 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import static android.content.Context.VIBRATOR_SERVICE;
 
 public class Flashlight {
-    private AppCompatActivity app;
     private CameraManager cameraManager;
     private String cameraId;
-    private ToggleButton flashlightButton;
     private Vibrator vibrator;
 
     public Flashlight(Context context) {
-        app = (AppCompatActivity) context;
+        AppCompatActivity app = (AppCompatActivity) context;
         cameraManager =  (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
         vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
-        flashlightButton = app.findViewById(R.id.flashlightButton);
+        ToggleButton flashlightButton = app.findViewById(R.id.flashlightButton);
 
         try {
             cameraId = cameraManager.getCameraIdList()[0];
@@ -30,7 +28,7 @@ public class Flashlight {
             e.printStackTrace();
         }
 
-        final boolean isFlashAvailable = app.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT);
+        final boolean isFlashAvailable = app.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
         flashlightButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 

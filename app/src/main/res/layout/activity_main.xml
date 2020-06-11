@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/altitudeLabel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -76,6 +77,56 @@
         app:layout_constraintStart_toStartOf="@+id/compassBackground"
         app:layout_constraintTop_toBottomOf="@+id/compassBackground" />
 
+    <TextView
+        android:id="@+id/coordinatesView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/angleView"
+        app:layout_constraintStart_toStartOf="@+id/angleView"
+        app:layout_constraintTop_toBottomOf="@+id/angleView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/changeThemeTextView"
+        app:layout_constraintEnd_toEndOf="@+id/autoThemeButton"
+        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintStart_toStartOf="@+id/autoThemeButton"
+        app:layout_constraintTop_toTopOf="@+id/sosButton" />
+
+    <TextView
+        android:id="@+id/pressureLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/pressureLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pressureView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toEndOf="@+id/pressureLabel"
+        app:layout_constraintTop_toTopOf="@+id/pressureLabel" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/altitudeLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="@+id/pressureLabel"
+        app:layout_constraintTop_toBottomOf="@+id/pressureLabel" />
+
     <ToggleButton
         android:id="@+id/flashlightButton"
         android:layout_width="wrap_content"
@@ -86,16 +137,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sosButton"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/coordinationView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="@+id/angleView"
-        app:layout_constraintStart_toStartOf="@+id/angleView"
-        app:layout_constraintTop_toBottomOf="@+id/angleView" />
 
     <ToggleButton
         android:id="@+id/autoThemeButton"
@@ -109,13 +150,12 @@
         app:layout_constraintStart_toEndOf="@+id/sosButton" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/altitudeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/changeThemeTextView"
-        app:layout_constraintEnd_toEndOf="@+id/autoThemeButton"
-        app:layout_constraintHorizontal_bias="0.655"
-        app:layout_constraintStart_toStartOf="@+id/autoThemeButton"
-        app:layout_constraintTop_toTopOf="@+id/sosButton" />
+        android:layout_marginStart="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

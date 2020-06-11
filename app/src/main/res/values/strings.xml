@@ -10,4 +10,6 @@
     <string name="compassBackgroundDesc">Compass Background</string>
     <string name="CompassPointerDesc">Compass Pointer</string>
     <string name="changeThemeTextView">Autom. motyw</string>
+    <string name="pressureLabel">Ciśnienie:</string>
+    <string name="altitudeLabel">Wysokość:</string>
 </resources>

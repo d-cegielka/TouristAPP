@@ -9,6 +9,8 @@ public class MainActivity extends AppCompatActivity {
     private Compass compass;
     private Flashlight flashlight;
     private ThemeManager themeManager;
+    private Pressure pressure;
+    private Coordinates coordinates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
         compass = new Compass(this);
         flashlight = new Flashlight(this);
         themeManager = new ThemeManager(this);
+        pressure = new Pressure(this);
+        coordinates = new Coordinates(this);
+
     }
 
     @Override
@@ -24,6 +29,26 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         compass.start();
         themeManager.start();
+        pressure.start();
+        coordinates.start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        compass.start();
+        themeManager.start();
+        pressure.start();
+        coordinates.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        compass.stop();
+        themeManager.stop();
+        pressure.stop();
+        coordinates.stop();
     }
 
     @Override
@@ -31,5 +56,11 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         compass.stop();
         themeManager.stop();
+        pressure.stop();
+        coordinates.stop();
     }
+
+
+
+
 }
