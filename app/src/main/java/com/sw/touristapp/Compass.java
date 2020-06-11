@@ -6,7 +6,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,21 +36,20 @@ public class Compass implements SensorEventListener {
         geoMagneticSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
     }
 
-    void run() {
+    public void start() {
         sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME);
         sensorManager.registerListener(this, geoMagneticSensor, SensorManager.SENSOR_DELAY_GAME);
     }
 
-    void stop() {
+    public void stop() {
         sensorManager.unregisterListener(this);
     }
 
-    void changeUI(float newAzimuth){
+    private void changeUI(float newAzimuth){
         angleView.setText(round(normalizeDegree(-newAzimuth)) + "°");
         Animation compassImageRotate = new RotateAnimation(azimuth, newAzimuth,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         azimuth = newAzimuth;
-        
 
         compassImageRotate.setDuration(500);
         compassImageRotate.setRepeatCount(0);

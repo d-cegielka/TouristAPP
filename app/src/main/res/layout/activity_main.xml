@@ -11,18 +11,18 @@
         android:id="@+id/sosButton"
         android:layout_width="119dp"
         android:layout_height="74dp"
-        android:layout_marginEnd="146dp"
         android:layout_marginBottom="9dp"
         android:backgroundTint="#C81414"
         android:text="@string/sosButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/compassBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="170dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="170dp"
@@ -49,7 +49,7 @@
         app:srcCompat="@drawable/pointer" />
 
     <Switch
-        android:id="@+id/switch_theme"
+        android:id="@+id/nightThemeSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -62,29 +62,60 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="10dp"
         android:text="@string/flashlightTextView"
-        app:layout_constraintBottom_toTopOf="@+id/flashlightButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/flashlightButton"
+        app:layout_constraintStart_toStartOf="@+id/flashlightButton"
+        app:layout_constraintTop_toTopOf="@+id/sosButton" />
 
     <TextView
         android:id="@+id/angleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="@+id/sosButton"
-        app:layout_constraintStart_toStartOf="@+id/sosButton"
-        app:layout_constraintTop_toBottomOf="@+id/compassPointer" />
+        app:layout_constraintEnd_toEndOf="@+id/compassBackground"
+        app:layout_constraintStart_toStartOf="@+id/compassBackground"
+        app:layout_constraintTop_toBottomOf="@+id/compassBackground" />
 
     <ToggleButton
         android:id="@+id/flashlightButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="38dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sosButton"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/coordinationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/angleView"
+        app:layout_constraintStart_toStartOf="@+id/angleView"
+        app:layout_constraintTop_toBottomOf="@+id/angleView" />
+
+    <ToggleButton
+        android:id="@+id/autoThemeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sosButton" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/changeThemeTextView"
+        app:layout_constraintEnd_toEndOf="@+id/autoThemeButton"
+        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintStart_toStartOf="@+id/autoThemeButton"
+        app:layout_constraintTop_toTopOf="@+id/sosButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
