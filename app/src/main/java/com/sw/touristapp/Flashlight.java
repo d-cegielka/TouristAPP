@@ -15,12 +15,14 @@ public class Flashlight {
     private CameraManager cameraManager;
     private String cameraId;
     private Vibrator vibrator;
+    final boolean isFlashAvailable;
+    final ToggleButton flashlightButton;
 
     public Flashlight(Context context) {
         AppCompatActivity app = (AppCompatActivity) context;
         cameraManager =  (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
         vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
-        ToggleButton flashlightButton = app.findViewById(R.id.flashlightButton);
+        flashlightButton = app.findViewById(R.id.flashlightButton);
 
         try {
             cameraId = cameraManager.getCameraIdList()[0];
@@ -28,7 +30,7 @@ public class Flashlight {
             e.printStackTrace();
         }
 
-        final boolean isFlashAvailable = app.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+        isFlashAvailable = app.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
         flashlightButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -50,7 +52,7 @@ public class Flashlight {
         });
     }
 
-    private void switchFlashLight(boolean status) {
+    void switchFlashLight(boolean status) {
         try {
             cameraManager.setTorchMode(cameraId,status);
         }catch (CameraAccessException e) {

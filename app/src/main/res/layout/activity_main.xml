@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/altitudeLabel"
+    android:id="@+id/app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/flashlightLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/flashlightTextView"
@@ -82,13 +82,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="@+id/angleView"
         app:layout_constraintStart_toStartOf="@+id/angleView"
         app:layout_constraintTop_toBottomOf="@+id/angleView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/changeThemeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/changeThemeTextView"
@@ -118,7 +118,7 @@
         app:layout_constraintTop_toTopOf="@+id/pressureLabel" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/altitudeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -155,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintStart_toEndOf="@+id/altitudeLabel"
+        app:layout_constraintTop_toTopOf="@+id/altitudeLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
