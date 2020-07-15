@@ -23,6 +23,10 @@ public class ThemeManager implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor lightSensor;
 
+    /**
+     * Konstruktor parametrowy menadżera motywów.
+     * @param context kontekst aplikacji
+     */
     public ThemeManager(Context context) {
         app = (AppCompatActivity) context;
         autoThemeButton = app.findViewById(R.id.autoThemeButton);
@@ -33,10 +37,8 @@ public class ThemeManager implements SensorEventListener {
             nightThemeSwitch.setChecked(true);
         }
 
-        //light sensor
         sensorManager = (SensorManager) app.getSystemService(SENSOR_SERVICE);
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-
         nightThemeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
@@ -55,28 +57,37 @@ public class ThemeManager implements SensorEventListener {
         });
     }
 
+    /**
+     * Rejestracja wymaganych czujników (czujnik światła).
+     */
     public void start() {
         sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_UI);
     }
 
+    /**
+     * Wyrejestrowanie wszystkich zarejestrowanych czujników.
+     */
     public void stop() {
         sensorManager.unregisterListener(this);
     }
 
+    /**
+     * Zmiana motywu aplikacji.
+     * true -> tryb ciemny, false -> tryb jasny
+     * @param isChecked wyrażenie logiczne
+     */
     private void changeTheme(final boolean isChecked){
         if(isChecked){
-            //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            //app.getDelegate().onStop();
             app.getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            //app.getDelegate().onStart();
         } else{
-            //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            //app.getDelegate().onStop();
             app.getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            //app.getDelegate().onStart();
         }
     }
 
+    /**
+     * Metoda zostaje wywołana gdy zmieni się wartość czujnika.
+     * @param event zdarzenie sensora
+     */
     @Override
     public void onSensorChanged(SensorEvent event) {
         if(event.sensor.getType() == Sensor.TYPE_LIGHT){
@@ -93,8 +104,11 @@ public class ThemeManager implements SensorEventListener {
         }
     }
 
+    /**
+     * Metoda zostaje wywołana gdy zmieni się dokładność zarejestrowanego czujnika.
+     * @param sensor obiekt sensora
+     * @param accuracy nowa dokładność czujnika
+     */
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 }

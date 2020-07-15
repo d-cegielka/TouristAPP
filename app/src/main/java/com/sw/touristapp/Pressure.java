@@ -15,14 +15,20 @@ public class Pressure implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor pressureSensor;
     private TextView pressureTextView;
+    float pressureValue;
+    private Coordinate coordinate;
 
-    public Pressure(Context context) {
+    public Pressure(Context context, Coordinate coordinate) {
         app = (AppCompatActivity) context;
+        this.coordinate = coordinate;
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
         pressureTextView = app.findViewById(R.id.pressureView);
         if(pressureSensor == null){
             pressureTextView.setText(" niedostępny");
+            coordinate.isAvailableAltitudeFromPressureSensor = false;
+        } else {
+            coordinate.isAvailableAltitudeFromPressureSensor = true;
         }
     }
 
@@ -36,8 +42,10 @@ public class Pressure implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        float[] value = event.values;
-        pressureTextView.setText(String.format("%.1f hPa", value[0]));
+        //float[] value = event.values;
+        pressureValue = event.values[0];
+        pressureTextView.setText(String.format("%.1f hPa", pressureValue));
+        coordinate.updateAltitude(SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressureValue));
     }
 
     @Override

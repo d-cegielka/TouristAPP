@@ -1,9 +1,7 @@
 package com.sw.touristapp;
 
-import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
     private Flashlight flashlight;
     private ThemeManager themeManager;
     private Pressure pressure;
-    private Coordinates coordinates;
+    Coordinate coordinate;
     private SignalSOS signalSOS;
 
 
@@ -22,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         compass = new Compass(this);
         flashlight = new Flashlight(this);
         themeManager = new ThemeManager(this);
-        pressure = new Pressure(this);
-        coordinates = new Coordinates(this);
+        coordinate = new Coordinate(this);
+        pressure = new Pressure(this, coordinate);
         signalSOS = new SignalSOS(this, flashlight);
     }
 
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         compass.start();
         themeManager.start();
         pressure.start();
-        coordinates.start();
+        coordinate.start();
     }
 
     @Override
@@ -42,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         compass.start();
         themeManager.start();
         pressure.start();
-        coordinates.start();
+        coordinate.start();
     }
 
     @Override
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         compass.stop();
         themeManager.stop();
         pressure.stop();
-        coordinates.stop();
+        coordinate.stop();
     }
 
     @Override
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         compass.stop();
         themeManager.stop();
         pressure.stop();
-        coordinates.stop();
+        coordinate.stop();
     }
 
 }
