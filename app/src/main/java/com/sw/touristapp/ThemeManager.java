@@ -85,7 +85,8 @@ public class ThemeManager implements SensorEventListener {
     }
 
     /**
-     * Metoda zostaje wywołana gdy zmieni się wartość czujnika.
+     * Metoda zostaje wywołana gdy zmieni się wartość czujnika. Kiedy wartość odczytana jest poniżej 50lx (luks) uruchamiany jest ciemny motyw,
+     * w przeciwnym razie pozostaje włączony motyw jasny.
      * @param event zdarzenie sensora
      */
     @Override

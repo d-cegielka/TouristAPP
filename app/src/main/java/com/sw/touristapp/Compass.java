@@ -71,7 +71,6 @@ public class Compass implements SensorEventListener {
         pointerView.setAnimation(compassImageRotate);
     }
 
-
     /**
      * Metoda zostaje wywołana gdy zmieni się wartość czujnika.
      * @param event zdarzenie sensora
@@ -104,7 +103,6 @@ public class Compass implements SensorEventListener {
             }
         }
     }
-
 
     /**
      * Normalizacja azymutu (0-360 stopni).

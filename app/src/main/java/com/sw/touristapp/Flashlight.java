@@ -18,6 +18,10 @@ public class Flashlight {
     final boolean isFlashAvailable;
     final ToggleButton flashlightButton;
 
+    /**
+     * Konstruktor parametrowy latarki.
+     * @param context kontekst aplikacji.
+     */
     public Flashlight(Context context) {
         AppCompatActivity app = (AppCompatActivity) context;
         cameraManager =  (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
@@ -33,7 +37,6 @@ public class Flashlight {
         isFlashAvailable = app.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
         flashlightButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 switchFlashLight(isChecked);
@@ -52,13 +55,16 @@ public class Flashlight {
         });
     }
 
+    /**
+     * Metoda służąca do włączenia latarki.
+     * @param status wartość true - włączenie latarki, wartość false - wyłączenie latarki.
+     */
     void switchFlashLight(boolean status) {
         try {
-            cameraManager.setTorchMode(cameraId,status);
-        }catch (CameraAccessException e) {
+            cameraManager.setTorchMode(cameraId, status);
+        } catch (CameraAccessException e) {
             e.printStackTrace();
         }
     }
-
 
 }

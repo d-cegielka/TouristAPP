@@ -72,21 +72,18 @@ public class Coordinate implements LocationListener {
     /**
      * Aktualizacja wartości wysokości.
      * Metoda wywoływana przez klasę obsługująca barometr.
-     * @param altitudeValueFromPressureSensor wysokość n.p.m. na podstawie ciśninienia atmosferycznego
+     * @param altitudeValueFromPressureSensor wysokość n.p.m. na podstawie ciśnienia atmosferycznego
      */
     void updateAltitude(double altitudeValueFromPressureSensor) {
         synchronized (this) {
-            if(isAvailableAltitudeFromPressureSensor && altitudeValueFromLocation != 0d){
+            if (isAvailableAltitudeFromPressureSensor && altitudeValueFromLocation != 0d) {
                 double avgAltitude = (altitudeValueFromPressureSensor + altitudeValueFromLocation) / 2;
                 altitudeTextView.setText(String.format("%.1f m n.p.m", avgAltitude));
-            }
-            else if(altitudeValueFromLocation != 0d){
+            } /*else if (altitudeValueFromLocation != 0d) {
                 altitudeTextView.setText(String.format("%.1f m n.p.m", altitudeValueFromLocation));
-            }
-            else if(isAvailableAltitudeFromPressureSensor){
+            } */else if (isAvailableAltitudeFromPressureSensor) {
                 altitudeTextView.setText(String.format("%.1f m n.p.m", altitudeValueFromPressureSensor));
-            }
-            else{
+            } else {
                 altitudeTextView.setText("N/A");
             }
         }
@@ -115,12 +112,12 @@ public class Coordinate implements LocationListener {
         builder.setMessage("GPS jest wyłączony. Czy chcesz włączyć GPS?")
                 .setCancelable(false)
                 .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
-                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                    public void onClick(final DialogInterface dialog, final int id) {
                         app.startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                     }
                 })
                 .setNegativeButton("Nie", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                    public void onClick(final DialogInterface dialog, final int id) {
                         dialog.cancel();
                     }
                 });

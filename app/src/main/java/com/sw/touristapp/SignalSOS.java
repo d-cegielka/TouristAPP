@@ -23,6 +23,12 @@ public class SignalSOS {
     private BiometricPrompt.PromptInfo promptInfo;
 
     //@RequiresApi(api = Build.VERSION_CODES.P)
+
+    /**
+     * Konstruktor parametrowy sygnału SOS.
+     * @param context kontekst aplikacji
+     * @param flashlight obiekt latarki
+     */
     public SignalSOS(Context context, final Flashlight flashlight) {
         app = (AppCompatActivity) context;
         executor = ContextCompat.getMainExecutor(app);
@@ -43,6 +49,9 @@ public class SignalSOS {
         });
     }
 
+    /**
+     * Metoda do autoryzacji użytkownika. Po poprawnej autoryzacji zostaje uruchomiony sygnał SOS za pomocą latarki.
+     */
     private void initializeSOSAuthenticate(){
         biometricPrompt = new BiometricPrompt(app, executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
@@ -72,6 +81,10 @@ public class SignalSOS {
                 .build();
     }
 
+    /**
+     * Metoda służąca do uruchomienia sygnału SOS z wykorzystaniem latarki.
+     * @param step ilość powtórzeń sygnału SOS.
+     */
     private void turnOnSOSFlashSignal(final int step) {
         String signal = "1010100100100100101010";
         int delay = 0;
