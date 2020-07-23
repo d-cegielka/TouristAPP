@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         flashlight = new Flashlight(this);
         themeManager = new ThemeManager(this);
         coordinate = new Coordinate(this);
-        pressure = new Pressure(this, coordinate);
+        pressure = new Pressure(this);
         signalSOS = new SignalSOS(this, flashlight);
     }
 

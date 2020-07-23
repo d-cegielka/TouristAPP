@@ -22,8 +22,6 @@ public class SignalSOS {
     private Flashlight flashlight;
     private BiometricPrompt.PromptInfo promptInfo;
 
-    //@RequiresApi(api = Build.VERSION_CODES.P)
-
     /**
      * Konstruktor parametrowy sygnału SOS.
      * @param context kontekst aplikacji
@@ -117,7 +115,6 @@ public class SignalSOS {
                     }
                 }
             }, delay += 1500);
-
         }
     }
 }

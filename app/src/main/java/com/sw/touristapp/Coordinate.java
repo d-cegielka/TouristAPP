@@ -21,8 +21,6 @@ public class Coordinate implements LocationListener {
     private LocationManager locationManager;
     private TextView coordinatesTextView;
     private TextView altitudeTextView;
-    private double altitudeValueFromLocation;
-    boolean isAvailableAltitudeFromPressureSensor;
     private static int ACCESS_FINE_LOCATION_CODE = 50;
 
     /**
@@ -70,26 +68,6 @@ public class Coordinate implements LocationListener {
     }
 
     /**
-     * Aktualizacja wartości wysokości.
-     * Metoda wywoływana przez klasę obsługująca barometr.
-     * @param altitudeValueFromPressureSensor wysokość n.p.m. na podstawie ciśnienia atmosferycznego
-     */
-    void updateAltitude(double altitudeValueFromPressureSensor) {
-        synchronized (this) {
-            if (isAvailableAltitudeFromPressureSensor && altitudeValueFromLocation != 0d) {
-                double avgAltitude = (altitudeValueFromPressureSensor + altitudeValueFromLocation) / 2;
-                altitudeTextView.setText(String.format("%.1f m n.p.m", avgAltitude));
-            } /*else if (altitudeValueFromLocation != 0d) {
-                altitudeTextView.setText(String.format("%.1f m n.p.m", altitudeValueFromLocation));
-            } */else if (isAvailableAltitudeFromPressureSensor) {
-                altitudeTextView.setText(String.format("%.1f m n.p.m", altitudeValueFromPressureSensor));
-            } else {
-                altitudeTextView.setText("N/A");
-            }
-        }
-    }
-
-    /**
      * Metoda wywoływana po zmianie lokalizacji.
      * @param location zaaktualizowana lokalizacja
      */
@@ -97,11 +75,8 @@ public class Coordinate implements LocationListener {
     public void onLocationChanged(@NonNull Location location) {
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
-        altitudeValueFromLocation = location.getAltitude();
         coordinatesTextView.setText(String.format("%.4f, %.4f", latitude, longitude));
-        if(!isAvailableAltitudeFromPressureSensor) {
-            altitudeTextView.setText(String.format("%.1f m n.p.m", altitudeValueFromLocation));
-        }
+        altitudeTextView.setText(String.format("%.1f m n.p.m", location.getAltitude()));
     }
 
     /**
