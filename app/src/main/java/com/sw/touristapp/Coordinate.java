@@ -11,11 +11,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+/**
+ * Klasa odpowiedzialna za odczyt współrzędnych geograficznych i wysokości n.p.m.
+ */
 public class Coordinate implements LocationListener {
     private AppCompatActivity app;
     private LocationManager locationManager;

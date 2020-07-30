@@ -11,6 +11,9 @@ import android.widget.ToggleButton;
 import androidx.appcompat.app.AppCompatActivity;
 import static android.content.Context.VIBRATOR_SERVICE;
 
+/**
+ * Klasa odpowiedzialna za funkcjonalność latarki.
+ */
 public class Flashlight {
     private CameraManager cameraManager;
     private String cameraId;

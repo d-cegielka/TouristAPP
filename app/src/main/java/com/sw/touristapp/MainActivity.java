@@ -1,9 +1,11 @@
 package com.sw.touristapp;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Klasa główna aplikacji.
+ */
 public class MainActivity extends AppCompatActivity {
     private Compass compass;
     private Flashlight flashlight;

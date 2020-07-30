@@ -5,11 +5,12 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Vibrator;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Klasa odpowiedzialna za odczyt ciśnienia atmosferycznego.
+ */
 public class Pressure implements SensorEventListener {
     private AppCompatActivity app;
     private SensorManager sensorManager;

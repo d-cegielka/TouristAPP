@@ -2,7 +2,6 @@ package com.sw.touristapp;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -10,12 +9,13 @@ import android.hardware.SensorManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.ToggleButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-
 import static android.content.Context.SENSOR_SERVICE;
 
+/**
+ * Klasa odpowiedzialna za funkcjonalność zmiany motywu aplikacji.
+ */
 public class ThemeManager implements SensorEventListener {
     private AppCompatActivity app;
     private ToggleButton autoThemeButton;

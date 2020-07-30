@@ -1,19 +1,19 @@
 package com.sw.touristapp;
 
-
 import android.content.Context;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
-
 import java.util.concurrent.Executor;
 
+/**
+ * Klasa odpowiedzialna za funkcjonalność sygnału SOS.
+ */
 public class SignalSOS {
     private AppCompatActivity app;
     private BiometricPrompt biometricPrompt;

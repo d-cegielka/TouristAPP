@@ -9,11 +9,12 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import static java.lang.Math.*;
 
+/**
+ * Klasa odpowiedzialna za funkcjonalność kompasu.
+ */
 public class Compass implements SensorEventListener {
     AppCompatActivity app;
     private SensorManager sensorManager;
