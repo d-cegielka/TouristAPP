@@ -7,10 +7,13 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.ToggleButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 import static android.content.Context.SENSOR_SERVICE;
 
 /**
@@ -19,7 +22,7 @@ import static android.content.Context.SENSOR_SERVICE;
 public class ThemeManager implements SensorEventListener {
     private AppCompatActivity app;
     private ToggleButton autoThemeButton;
-    private Switch nightThemeSwitch;
+    private SwitchMaterial nightThemeSwitch;
     private SensorManager sensorManager;
     private Sensor lightSensor;
 
@@ -46,14 +49,8 @@ public class ThemeManager implements SensorEventListener {
             }
         });
 
-        autoThemeButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    nightThemeSwitch.setClickable(false);
-                } else
-                    nightThemeSwitch.setClickable(true);
-            }
+        autoThemeButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            nightThemeSwitch.setClickable(!isChecked);
         });
     }
 

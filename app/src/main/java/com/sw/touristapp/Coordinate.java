@@ -31,9 +31,6 @@ public class Coordinate implements LocationListener {
      */
     public Coordinate(Context context) {
         app = (AppCompatActivity) context;
-        if (ActivityCompat.checkSelfPermission(app, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(app, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION }, ACCESS_FINE_LOCATION_CODE);
-        }
         locationManager = (LocationManager) app.getSystemService(Context.LOCATION_SERVICE);
         coordinatesTextView = app.findViewById(R.id.coordinatesView);
         altitudeTextView = app.findViewById(R.id.altitudeView);

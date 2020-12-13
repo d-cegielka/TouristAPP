@@ -12,4 +12,7 @@
     <string name="changeThemeTextView">Autom. motyw</string>
     <string name="pressureLabel">Ciśnienie:</string>
     <string name="altitudeLabel">Wysokość:</string>
+    <string name="samplingFrequency">Częstotliwość próbkowania: (milisekundy)</string>
+    <string name="_defaultSamplingFrequency">20</string>
+    <string name="_setSamplingFrequency">Ustaw</string>
 </resources>

@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="@+id/compassBackground"
         app:srcCompat="@drawable/pointer" />
 
-    <Switch
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/nightThemeSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -157,5 +157,42 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toEndOf="@+id/altitudeLabel"
         app:layout_constraintTop_toTopOf="@+id/altitudeLabel" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="@string/samplingFrequency"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="@+id/altitudeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/altitudeLabel" />
+
+    <EditText
+        android:id="@+id/samplingFrequencyField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:autofillHints=""
+        android:ems="5"
+        android:hint="@string/_defaultSamplingFrequency"
+        android:inputType="number"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/setSamplingFrequencyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/_setSamplingFrequency"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/samplingFrequencyField"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,18 @@
 package com.sw.touristapp;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.PowerManager;
+import android.view.WindowManager;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Klasa główna aplikacji.
@@ -16,12 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Metoda wywoływana przy tworzeniu instancji aplikacji.
+     *
      * @param savedInstanceState Jeżeli aktywność zostanie zainicjalizowana ponownie, jest to pakiet zawierający wcześniejszy zablokowany stan działania.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        requestRequiredPermissions();
         compass = new Compass(this);
         flashlight = new Flashlight(this);
         themeManager = new ThemeManager(this);
@@ -50,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         compass.start();
+        compass.resume();
         themeManager.start();
         pressure.start();
         coordinate.start();
@@ -64,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         compass.stop();
+        compass.pause();
         themeManager.stop();
         pressure.stop();
         coordinate.stop();
@@ -80,6 +96,19 @@ public class MainActivity extends AppCompatActivity {
         themeManager.stop();
         pressure.stop();
         coordinate.stop();
+    }
+
+    private void requestRequiredPermissions() {
+        List<String> requiredPermissions = new ArrayList<>();
+        final int REQUEST_PERM = 10;
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requiredPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requiredPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if (requiredPermissions.size() > 0)
+            ActivityCompat.requestPermissions(this, requiredPermissions.toArray(new String[0]), REQUEST_PERM);
     }
 
 }
